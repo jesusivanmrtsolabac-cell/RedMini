@@ -3,40 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReJuga | Marketplace de Segunda Mano para Niños y Jóvenes</title>
+    <title>RedMini | Marketplace de Segunda Mano para Niños y Jóvenes</title>
+    <!-- Importamos una fuente redondeada y amigable desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Variables de color basadas en tu LOGO */
+        :root {
+            --red: #e74c3c;      /* Color principal */
+            --orange: #f39c12;   
+            --green: #27ae60;    
+            --blue: #3498db;     
+            --purple: #9b59b6;   
+            --bg-color: #fcf9f2; /* Color crema del fondo de tu logo */
+            --text-dark: #333333;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 1.8rem; font-weight: bold; color: #ff6b6b; }
-        nav a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
-        nav a:hover { color: #ff6b6b; }
-        .hero { background: linear-gradient(135deg, #ffeaa7, #fab1a0); text-align: center; padding: 4rem 1rem; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #2d3436; }
-        .hero p { font-size: 1.2rem; color: #636e72; max-width: 600px; margin: 0 auto 2rem; }
-        .btn { display: inline-block; background-color: #ff6b6b; color: white; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
-        .btn:hover { background-color: #e55a5a; }
-        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        
+        body { 
+            font-family: 'Fredoka', sans-serif; /* Tipografía redondeada */
+            background-color: var(--bg-color); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+        header { 
+            background-color: #fff; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+
+        /* ESTILOS PARA EL LOGO Y EL TEXTO "RedMini" */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px; /* Ajusta el tamaño de tu logo aquí */
+            width: 50px;
+            border-radius: 50%; /* Hace que la imagen sea redonda como tu logo */
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Colores individuales para las letras de RedMini */
+        .c-red { color: var(--red); }
+        .c-orange { color: var(--orange); }
+        .c-green { color: var(--green); }
+        .c-blue { color: var(--blue); }
+        .c-purple { color: var(--purple); }
+
+        nav a { 
+            margin-left: 1.5rem; 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--red); }
+
+        /* SECCIÓN HERO (PORTADA) */
+        .hero { 
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(243, 156, 18, 0.1)); 
+            text-align: center; 
+            padding: 4rem 1rem; 
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            color: var(--text-dark); 
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            color: #555; 
+            max-width: 650px; 
+            margin: 0 auto 2rem; 
+        }
+        
+        .btn { 
+            display: inline-block; 
+            background-color: var(--red); 
+            color: white; 
+            padding: 0.8rem 2.5rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            transition: transform 0.2s, background 0.3s; 
+        }
+        .btn:hover { 
+            background-color: #c0392b; 
+            transform: scale(1.05);
+        }
+
+        /* CONTENEDOR PRINCIPAL Y PRODUCTOS */
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
+        
         .filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .filters button { padding: 0.6rem 1.5rem; border: 2px solid #ff6b6b; background: white; color: #ff6b6b; border-radius: 30px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
-        .filters button.active, .filters button:hover { background: #ff6b6b; color: white; }
+        .filters button { 
+            padding: 0.6rem 1.8rem; 
+            border: 2px solid var(--blue); 
+            background: white; 
+            color: var(--blue); 
+            border-radius: 30px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s; 
+        }
+        .filters button.active, .filters button:hover { 
+            background: var(--blue); 
+            color: white; 
+        }
+
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s; display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; background-color: #eee; }
-        .product-info { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .product-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .product-info .price { font-weight: bold; color: #ff6b6b; font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .product-info .category-tag { font-size: 0.8rem; background: #f1f2f6; color: #636e72; padding: 0.2rem 0.6rem; border-radius: 20px; align-self: flex-start; }
-        .contact-btn { background: #2d3436; color: white; text-align: center; padding: 0.6rem; border-radius: 8px; text-decoration: none; margin-top: 1rem; font-size: 0.9rem; transition: background 0.3s; }
-        .contact-btn:hover { background: #000; }
-        footer { text-align: center; padding: 2rem; background: #2d3436; color: #dfe6e9; margin-top: 4rem; }
+        
+        .product-card { 
+            background: white; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05); 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1); 
+        }
+        
+        .product-card img { width: 100%; height: 220px; object-fit: cover; background-color: #eee; }
+        
+        .product-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .product-info .price { font-weight: bold; color: var(--green); font-size: 1.4rem; margin-bottom: 0.8rem; }
+        
+        .product-info .category-tag { 
+            font-size: 0.85rem; 
+            background: var(--bg-color); 
+            color: var(--text-dark); 
+            padding: 0.3rem 0.8rem; 
+            border-radius: 20px; 
+            align-self: flex-start; 
+            border: 1px solid #ddd;
+        }
+        
+        .contact-btn { 
+            background: var(--text-dark); 
+            color: white; 
+            text-align: center; 
+            padding: 0.8rem; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            margin-top: 1.2rem; 
+            font-size: 1rem; 
+            transition: background 0.3s; 
+        }
+        .contact-btn:hover { background: var(--red); }
+
+        footer { text-align: center; padding: 2rem; background: var(--text-dark); color: #dfe6e9; margin-top: 4rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">ReJuga</div>
+        <!-- AQUÍ VA TU LOGO Y EL TEXTO DE COLORES -->
+        <a href="#" class="logo-container">
+            <!-- Nota: Asegúrate de subir tu imagen como 'logo.png' a GitHub -->
+            <img src="logo.png" alt="Logo RedMini" class="logo-img" onerror="this.style.display='none'">
+            <div class="logo-text">
+                <span class="c-red">Red</span><span class="c-orange">M</span><span class="c-green">i</span><span class="c-blue">n</span><span class="c-purple">i</span>
+            </div>
+        </a>
+        
         <nav>
             <a href="#">Inicio</a>
             <a href="#">Juguetes</a>
@@ -47,7 +204,7 @@
 
     <section class="hero">
         <h1>Dale una segunda vida a su infancia</h1>
-        <p>Compra y vende juguetes y ropa de segunda mano para niños y jóvenes. Ahorra dinero, cuida el planeta y encuentra tesoros únicos.</p>
+        <p>Compra y vende juguetes y ropa de segunda mano para niños y jóvenes. Ahorra dinero, cuida el planeta y encuentra tesoros únicos en RedMini.</p>
         <a href="#" class="btn">Explorar Productos</a>
     </section>
 
@@ -69,6 +226,7 @@
                     <a href="#" class="contact-btn">Contactar Vendedor</a>
                 </div>
             </div>
+            <!-- Producto 2 -->
             <div class="product-card" data-category="ropa">
                 <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Chaqueta infantil">
                 <div class="product-info">
@@ -78,6 +236,7 @@
                     <a href="#" class="contact-btn">Contactar Vendedor</a>
                 </div>
             </div>
+            <!-- Producto 3 -->
             <div class="product-card" data-category="juguetes">
                 <img src="https://images.unsplash.com/photo-1596460107916-430662021049?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Peluche">
                 <div class="product-info">
@@ -87,6 +246,7 @@
                     <a href="#" class="contact-btn">Contactar Vendedor</a>
                 </div>
             </div>
+            <!-- Producto 4 -->
             <div class="product-card" data-category="ropa">
                 <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Zapatos niños">
                 <div class="product-info">
@@ -100,7 +260,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 ReJuga. Todos los derechos reservados. | Hecho con ❤️ para un futuro sostenible.</p>
+        <p>&copy; 2026 RedMini. Todos los derechos reservados. | Hecho con ❤️ para un futuro sostenible.</p>
     </footer>
 
     <script>

@@ -3,180 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedMini | Marketplace de Segunda Mano para Niños y Jóvenes</title>
-    <!-- Importamos una fuente redondeada y amigable desde Google Fonts -->
+    <title>RedMini | Marketplace de Segunda Mano</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        /* Variables de color basadas en tu LOGO */
         :root {
-            --red: #e74c3c;      /* Color principal */
-            --orange: #f39c12;   
-            --green: #27ae60;    
-            --blue: #3498db;     
-            --purple: #9b59b6;   
-            --bg-color: #fcf9f2; /* Color crema del fondo de tu logo */
-            --text-dark: #333333;
+            --red: #e74c3c; --orange: #f39c12; --green: #27ae60;
+            --blue: #3498db; --purple: #9b59b6; --bg-color: #fcf9f2; --text-dark: #333333;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Fredoka', sans-serif; background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
         
-        body { 
-            font-family: 'Fredoka', sans-serif; /* Tipografía redondeada */
-            background-color: var(--bg-color); 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-        }
+        header { background-color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        
+        /* LOGO */
+        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-img { height: 55px; width: 55px; border-radius: 50%; object-fit: cover; }
+        .logo-text { font-size: 2.2rem; font-weight: 700; letter-spacing: 1px; }
+        .c-red { color: var(--red); } .c-orange { color: var(--orange); } .c-green { color: var(--green); } .c-blue { color: var(--blue); } .c-purple { color: var(--purple); }
 
-        /* BARRA DE NAVEGACIÓN */
-        header { 
-            background-color: #fff; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-        }
-
-        /* ESTILOS PARA EL LOGO Y EL TEXTO "RedMini" */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 50px; /* Ajusta el tamaño de tu logo aquí */
-            width: 50px;
-            border-radius: 50%; /* Hace que la imagen sea redonda como tu logo */
-            object-fit: cover;
-        }
-
-        .logo-text {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* Colores individuales para las letras de RedMini */
-        .c-red { color: var(--red); }
-        .c-orange { color: var(--orange); }
-        .c-green { color: var(--green); }
-        .c-blue { color: var(--blue); }
-        .c-purple { color: var(--purple); }
-
-        nav a { 
-            margin-left: 1.5rem; 
-            text-decoration: none; 
-            color: var(--text-dark); 
-            font-weight: 600; 
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
+        nav a { margin-left: 1.5rem; text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1.1rem; transition: color 0.3s; }
         nav a:hover { color: var(--red); }
 
-        /* SECCIÓN HERO (PORTADA) */
-        .hero { 
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(243, 156, 18, 0.1)); 
-            text-align: center; 
-            padding: 4rem 1rem; 
-        }
-        .hero h1 { 
-            font-size: 3rem; 
-            margin-bottom: 1rem; 
-            color: var(--text-dark); 
-        }
-        .hero p { 
-            font-size: 1.2rem; 
-            color: #555; 
-            max-width: 650px; 
-            margin: 0 auto 2rem; 
-        }
-        
-        .btn { 
-            display: inline-block; 
-            background-color: var(--red); 
-            color: white; 
-            padding: 0.8rem 2.5rem; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 1.1rem;
-            transition: transform 0.2s, background 0.3s; 
-        }
-        .btn:hover { 
-            background-color: #c0392b; 
-            transform: scale(1.05);
-        }
+        /* HERO */
+        .hero { background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(243, 156, 18, 0.1)); text-align: center; padding: 4rem 1rem; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .hero p { font-size: 1.2rem; color: #555; max-width: 650px; margin: 0 auto 2rem; }
+        .btn { display: inline-block; background-color: var(--red); color: white; padding: 0.8rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: transform 0.2s, background 0.3s; }
+        .btn:hover { background-color: #c0392b; transform: scale(1.05); }
 
-        /* CONTENEDOR PRINCIPAL Y PRODUCTOS */
+        /* CONTENEDOR Y PRODUCTOS */
         .container { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
-        
         .filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .filters button { 
-            padding: 0.6rem 1.8rem; 
-            border: 2px solid var(--blue); 
-            background: white; 
-            color: var(--blue); 
-            border-radius: 30px; 
-            cursor: pointer; 
-            font-weight: 600; 
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s; 
-        }
-        .filters button.active, .filters button:hover { 
-            background: var(--blue); 
-            color: white; 
-        }
+        .filters button { padding: 0.6rem 1.8rem; border: 2px solid var(--blue); background: white; color: var(--blue); border-radius: 30px; cursor: pointer; font-weight: 600; font-family: 'Fredoka', sans-serif; font-size: 1rem; transition: all 0.3s; }
+        .filters button.active, .filters button:hover { background: var(--blue); color: white; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; }
-        
-        .product-card { 
-            background: white; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05); 
-            transition: transform 0.3s, box-shadow 0.3s; 
-            display: flex; 
-            flex-direction: column; 
-        }
-        .product-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1); 
-        }
+        .product-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
         
         .product-card img { width: 100%; height: 220px; object-fit: cover; background-color: #eee; }
-        
         .product-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
         .product-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
         .product-info .price { font-weight: bold; color: var(--green); font-size: 1.4rem; margin-bottom: 0.8rem; }
-        
-        .product-info .category-tag { 
-            font-size: 0.85rem; 
-            background: var(--bg-color); 
-            color: var(--text-dark); 
-            padding: 0.3rem 0.8rem; 
-            border-radius: 20px; 
-            align-self: flex-start; 
-            border: 1px solid #ddd;
-        }
-        
-        .contact-btn { 
-            background: var(--text-dark); 
-            color: white; 
-            text-align: center; 
-            padding: 0.8rem; 
-            border-radius: 10px; 
-            text-decoration: none; 
-            margin-top: 1.2rem; 
-            font-size: 1rem; 
-            transition: background 0.3s; 
-        }
+        .product-info .category-tag { font-size: 0.85rem; background: var(--bg-color); color: var(--text-dark); padding: 0.3rem 0.8rem; border-radius: 20px; align-self: flex-start; border: 1px solid #ddd; }
+        .contact-btn { background: var(--text-dark); color: white; text-align: center; padding: 0.8rem; border-radius: 10px; text-decoration: none; margin-top: 1.2rem; font-size: 1rem; transition: background 0.3s; }
         .contact-btn:hover { background: var(--red); }
 
         footer { text-align: center; padding: 2rem; background: var(--text-dark); color: #dfe6e9; margin-top: 4rem; }
@@ -185,15 +55,13 @@
 <body>
 
     <header>
-        <!-- AQUÍ VA TU LOGO Y EL TEXTO DE COLORES -->
         <a href="#" class="logo-container">
-            <!-- Nota: Asegúrate de subir tu imagen como 'logo.png' a GitHub -->
+            <!-- Recuerda subir tu logo con el nombre logo.png -->
             <img src="logo.png" alt="Logo RedMini" class="logo-img" onerror="this.style.display='none'">
             <div class="logo-text">
                 <span class="c-red">Red</span><span class="c-orange">M</span><span class="c-green">i</span><span class="c-blue">n</span><span class="c-purple">i</span>
             </div>
         </a>
-        
         <nav>
             <a href="#">Inicio</a>
             <a href="#">Juguetes</a>
@@ -216,9 +84,9 @@
         </div>
 
         <div class="product-grid">
-            <!-- Producto 1 -->
+            <!-- Producto 1: Bloques / Juguetes -->
             <div class="product-card" data-category="juguetes">
-                <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Juguete de madera">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Bloques de madera">
                 <div class="product-info">
                     <h3>Set de Bloques de Madera</h3>
                     <div class="price">$150 MXN</div>
@@ -226,9 +94,10 @@
                     <a href="#" class="contact-btn">Contactar Vendedor</a>
                 </div>
             </div>
-            <!-- Producto 2 -->
+            
+            <!-- Producto 2: Bebé / Ropa -->
             <div class="product-card" data-category="ropa">
-                <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Chaqueta infantil">
+                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Ropa de bebé">
                 <div class="product-info">
                     <h3>Chaqueta Vaquera Talla 4</h3>
                     <div class="price">$120 MXN</div>
@@ -236,9 +105,10 @@
                     <a href="#" class="contact-btn">Contactar Vendedor</a>
                 </div>
             </div>
-            <!-- Producto 3 -->
+            
+            <!-- Producto 3: Peluche / Juguetes -->
             <div class="product-card" data-category="juguetes">
-                <img src="https://images.unsplash.com/photo-1596460107916-430662021049?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Peluche">
+                <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Peluche de oso">
                 <div class="product-info">
                     <h3>Peluche de Oso (Como nuevo)</h3>
                     <div class="price">$80 MXN</div>
@@ -246,9 +116,10 @@
                     <a href="#" class="contact-btn">Contactar Vendedor</a>
                 </div>
             </div>
-            <!-- Producto 4 -->
+            
+            <!-- Producto 4: Zapatos / Ropa -->
             <div class="product-card" data-category="ropa">
-                <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Zapatos niños">
+                <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Zapatos de niño">
                 <div class="product-info">
                     <h3>Zapatos Deportivos Talla 28</h3>
                     <div class="price">$100 MXN</div>
@@ -271,9 +142,7 @@
             button.addEventListener('click', () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-
                 const filterValue = button.getAttribute('data-filter');
-
                 productCards.forEach(card => {
                     if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                         card.style.display = 'flex';

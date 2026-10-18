@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReJuga | Marketplace de Segunda Mano para Niños y Jóvenes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        header { background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #ff6b6b; }
+        nav a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
+        nav a:hover { color: #ff6b6b; }
+        .hero { background: linear-gradient(135deg, #ffeaa7, #fab1a0); text-align: center; padding: 4rem 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #2d3436; }
+        .hero p { font-size: 1.2rem; color: #636e72; max-width: 600px; margin: 0 auto 2rem; }
+        .btn { display: inline-block; background-color: #ff6b6b; color: white; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .btn:hover { background-color: #e55a5a; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filters button { padding: 0.6rem 1.5rem; border: 2px solid #ff6b6b; background: white; color: #ff6b6b; border-radius: 30px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .filters button.active, .filters button:hover { background: #ff6b6b; color: white; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; background-color: #eee; }
+        .product-info { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .product-info .price { font-weight: bold; color: #ff6b6b; font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .product-info .category-tag { font-size: 0.8rem; background: #f1f2f6; color: #636e72; padding: 0.2rem 0.6rem; border-radius: 20px; align-self: flex-start; }
+        .contact-btn { background: #2d3436; color: white; text-align: center; padding: 0.6rem; border-radius: 8px; text-decoration: none; margin-top: 1rem; font-size: 0.9rem; transition: background 0.3s; }
+        .contact-btn:hover { background: #000; }
+        footer { text-align: center; padding: 2rem; background: #2d3436; color: #dfe6e9; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ReJuga</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Juguetes</a>
+            <a href="#">Ropa</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Dale una segunda vida a su infancia</h1>
+        <p>Compra y vende juguetes y ropa de segunda mano para niños y jóvenes. Ahorra dinero, cuida el planeta y encuentra tesoros únicos.</p>
+        <a href="#" class="btn">Explorar Productos</a>
+    </section>
+
+    <div class="container">
+        <div class="filters">
+            <button class="active" data-filter="all">Todos</button>
+            <button data-filter="juguetes">Juguetes</button>
+            <button data-filter="ropa">Ropa</button>
+        </div>
+
+        <div class="product-grid">
+            <!-- Producto 1 -->
+            <div class="product-card" data-category="juguetes">
+                <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Juguete de madera">
+                <div class="product-info">
+                    <h3>Set de Bloques de Madera</h3>
+                    <div class="price">$150 MXN</div>
+                    <span class="category-tag">Juguetes</span>
+                    <a href="#" class="contact-btn">Contactar Vendedor</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="ropa">
+                <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Chaqueta infantil">
+                <div class="product-info">
+                    <h3>Chaqueta Vaquera Talla 4</h3>
+                    <div class="price">$120 MXN</div>
+                    <span class="category-tag">Ropa</span>
+                    <a href="#" class="contact-btn">Contactar Vendedor</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="juguetes">
+                <img src="https://images.unsplash.com/photo-1596460107916-430662021049?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Peluche">
+                <div class="product-info">
+                    <h3>Peluche de Oso (Como nuevo)</h3>
+                    <div class="price">$80 MXN</div>
+                    <span class="category-tag">Juguetes</span>
+                    <a href="#" class="contact-btn">Contactar Vendedor</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="ropa">
+                <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Zapatos niños">
+                <div class="product-info">
+                    <h3>Zapatos Deportivos Talla 28</h3>
+                    <div class="price">$100 MXN</div>
+                    <span class="category-tag">Ropa</span>
+                    <a href="#" class="contact-btn">Contactar Vendedor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ReJuga. Todos los derechos reservados. | Hecho con ❤️ para un futuro sostenible.</p>
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filters button');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
